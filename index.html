@@ -1,0 +1,308 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Media Grab – Social Media Video & Audio Downloader</title>
+    <meta name="description" content="Fast, free, and high-quality downloads from YouTube, Instagram, Facebook, TikTok, and Twitter. No registration required. Secure and simple video & audio downloader.">
+    <meta name="keywords" content="video downloader, social media downloader, YouTube downloader, MP3 converter, MP4 download, Instagram download, TikTok downloader, Twitter video saver, Facebook video download">
+    <meta name="author" content="Media Grab">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mediagrab.github.io/">
+    <meta property="og:title" content="Media Grab – Social Media Video & Audio Downloader">
+    <meta property="og:description" content="Download videos and audio from your favorite social media platforms instantly. High-quality MP4 & MP3.">
+    <meta property="og:image" content="assets/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mediagrab.github.io/">
+    <meta name="twitter:title" content="Media Grab – Social Media Video & Audio Downloader">
+    <meta name="twitter:description" content="Download videos and audio from your favorite social media platforms instantly.">
+    <meta name="twitter:image" content="assets/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <a href="#" class="logo" aria-label="Media Grab Home">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17L2.621 19.485C2.72915 19.9177 2.97882 20.3016 3.33033 20.5763C3.68184 20.8509 4.11501 20.9999 4.561 21H19.439C19.885 20.9999 20.3182 20.8509 20.6697 20.5763C21.0212 20.3016 21.2709 19.9177 21.379 19.485L22 17" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#3B82F6"/>
+                                <stop offset="1" stop-color="#8B5CF6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">Media Grab</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-headline">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-headline" class="hero-title">
+                        Download Social Media Videos & Audio <span class="gradient-text">Instantly</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Fast, free, and high-quality downloads from your favorite platforms
+                    </p>
+                    
+                    <!-- Download Form -->
+                    <form id="download-form" class="download-form" novalidate>
+                        <div class="input-group">
+                            <input 
+                                type="url" 
+                                id="url-input" 
+                                class="url-input" 
+                                placeholder="Paste social media link here..." 
+                                required
+                                aria-label="Video URL"
+                            >
+                            <div class="select-wrapper">
+                                <select id="format-select" class="format-select" aria-label="Select format">
+                                    <option value="mp4">Video (MP4)</option>
+                                    <option value="mp3">Audio (MP3)</option>
+                                </select>
+                                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <button type="submit" id="download-btn" class="btn btn-primary">
+                                <span class="btn-text">Download</span>
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Loading Spinner -->
+                        <div id="spinner" class="spinner" role="status" aria-label="Loading">
+                            <span class="sr-only">Processing download...</span>
+                        </div>
+                        
+                        <!-- Message Container -->
+                        <div id="message" class="message" role="alert" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Platforms -->
+        <section class="platforms" aria-labelledby="platforms-title">
+            <div class="container">
+                <h2 id="platforms-title" class="section-title">Supported <span class="gradient-text">Platforms</span></h2>
+                <div class="platforms-grid">
+                    <!-- YouTube -->
+                    <div class="platform-card" tabindex="0">
+                        <div class="platform-icon youtube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">YouTube</h3>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="platform-card" tabindex="0">
+                        <div class="platform-icon instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Instagram</h3>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="platform-card" tabindex="0">
+                        <div class="platform-icon facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Facebook</h3>
+                    </div>
+
+                    <!-- TikTok -->
+                    <div class="platform-card" tabindex="0">
+                        <div class="platform-icon tiktok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">TikTok</h3>
+                    </div>
+
+                    <!-- Twitter/X -->
+                    <div class="platform-card" tabindex="0">
+                        <div class="platform-icon twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Twitter (X)</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works" aria-labelledby="how-it-works-title">
+            <div class="container">
+                <h2 id="how-it-works-title" class="section-title">How It <span class="gradient-text">Works</span></h2>
+                <div class="steps-grid">
+                    <div class="step-card" data-step="1">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Paste Link</h3>
+                        <p class="step-description">Copy and paste your video URL from any supported social media platform</p>
+                    </div>
+
+                    <div class="step-card" data-step="2">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Choose Format</h3>
+                        <p class="step-description">Select your preferred format - High-quality MP4 video or MP3 audio</p>
+                    </div>
+
+                    <div class="step-card" data-step="3">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Click Download</h3>
+                        <p class="step-description">Hit the download button and get your file instantly. No waiting, no hassle</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">Premium <span class="gradient-text">Features</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">High-Quality MP4 & MP3</h3>
+                        <p class="feature-description">Download videos in crystal clear 1080p or extract audio in 320kbps MP3 format</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Fast Processing Speed</h3>
+                        <p class="feature-description">Advanced optimization ensures your downloads start within seconds</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Mobile Friendly</h3>
+                        <p class="feature-description">Fully responsive design works perfectly on smartphones, tablets, and desktop</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">No Registration</h3>
+                        <p class="feature-description">Download instantly without creating accounts or providing personal information</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo logo-small">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17L2.621 19.485C2.72915 19.9177 2.97882 20.3016 3.33033 20.5763C3.68184 20.8509 4.11501 20.9999 4.561 21H19.439C19.885 20.9999 20.3182 20.8509 20.6697 20.5763C21.0212 20.3016 21.2709 19.9177 21.379 19.485L22 17" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="2" y1="3" x2="22" y2="21" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#3B82F6"/>
+                                    <stop offset="1" stop-color="#8B5CF6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">Media Grab</span>
+                    </a>
+                    <p class="copyright">Media Grab © 2026</p>
+                </div>
+                
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="#" class="footer-link">Home</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                </nav>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> Media Grab does not host any files. All media is hosted on third-party platforms. Users are responsible for content usage and must respect copyright laws and terms of service of respective platforms.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
